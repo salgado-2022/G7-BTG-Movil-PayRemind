@@ -1,0 +1,129 @@
+# =====================================================
+# PayRemind — .gitignore
+# Ionic 7 + Angular 17 (standalone) + Capacitor
+# =====================================================
+
+# ---------- Node / npm ----------
+/node_modules
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
+pnpm-debug.log*
+.pnpm-store/
+.npm/
+
+# ---------- Angular ----------
+/.angular
+/.angular/cache
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/coverage
+*.tsbuildinfo
+
+# ---------- Ionic ----------
+/.ionic
+/www
+/platforms
+/plugins
+/.sourcemaps
+/.versions
+
+# ---------- Capacitor ----------
+# Build artifacts generados; mantenemos capacitor.config.ts/json
+/.capacitor
+capacitor.build.gradle.bak
+
+# ---------- Android (build artifacts) ----------
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/captures/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/*.iml
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/raw/config.xml
+*.keystore
+*.jks
+keystore.properties
+
+# ---------- iOS (por si se agrega) ----------
+ios/App/Pods/
+ios/App/build/
+ios/App/Podfile.lock
+ios/DerivedData/
+ios/App/App.xcworkspace/xcuserdata/
+ios/App/App.xcodeproj/xcuserdata/
+ios/App/App/public/
+*.xcuserstate
+UserInterfaceState.xcuserstate
+
+# ---------- Variables de entorno / secretos ----------
+.env
+.env.*
+!.env.example
+src/environments/environment.local.ts
+google-services.json
+GoogleService-Info.plist
+
+# ---------- Bases de datos locales (dev) ----------
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+
+# ---------- IDEs / editores ----------
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# VS Code (conservar configuración compartida)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# ---------- Sistema operativo ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+Desktop.ini
+
+# ---------- Logs y temporales ----------
+*.log
+log.txt
+*.tmp
+*.tmp.*
+.tmp
+*~
+*.sw[mnpcod]
+testem.log
+connect.lock
+libpeerconnection.log
+/typings
+.sass-cache/
+
+# ---------- Testing ----------
+/karma-coverage
+/cypress/videos
+/cypress/screenshots
+/playwright-report
+/test-results
+
+# ---------- Nx (por si se usa) ----------
+/.nx
+/.nx/cache

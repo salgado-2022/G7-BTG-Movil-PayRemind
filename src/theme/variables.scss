@@ -1,0 +1,112 @@
+// PayRemind — Light Theme (Ionic Modern Interface Design)
+// Design system: Public Sans + Inter, PayRemind Blue #2563EB
+
+:root {
+  // ── Primary (PayRemind Blue) ─────────────────────────
+  --ion-color-primary:          #2563EB;
+  --ion-color-primary-rgb:      37, 99, 235;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade:    #1d56d4;
+  --ion-color-primary-tint:     #3b73ed;
+
+  // ── Secondary (Action Green) ─────────────────────────
+  --ion-color-secondary:          #10B981;
+  --ion-color-secondary-rgb:      16, 185, 129;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-shade:    #0ea272;
+  --ion-color-secondary-tint:     #28c08e;
+
+  // ── Tertiary (Warning Coral) ─────────────────────────
+  --ion-color-tertiary:          #FF7E67;
+  --ion-color-tertiary-rgb:      255, 126, 103;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-shade:    #e06e5a;
+  --ion-color-tertiary-tint:     #ff8b76;
+
+  // ── Danger ───────────────────────────────────────────
+  --ion-color-danger:          #ef4444;
+  --ion-color-danger-rgb:      239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-shade:    #d23c3c;
+  --ion-color-danger-tint:     #f15757;
+
+  // ── Success ──────────────────────────────────────────
+  --ion-color-success:          #10B981;
+  --ion-color-success-rgb:      16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-shade:    #0ea272;
+  --ion-color-success-tint:     #28c08e;
+
+  // ── Medium / Neutral ─────────────────────────────────
+  --ion-color-medium:          #737686;
+  --ion-color-medium-rgb:      115, 118, 134;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-shade:    #656878;
+  --ion-color-medium-tint:     #818492;
+
+  // ── Light ─────────────────────────────────────────────
+  --ion-color-light:          #f8f9ff;
+  --ion-color-light-rgb:      248, 249, 255;
+  --ion-color-light-contrast: #0b1c30;
+  --ion-color-light-shade:    #dadbe0;
+  --ion-color-light-tint:     #f9faff;
+
+  // ── Design Tokens ─────────────────────────────────────
+  --pr-blue:          #2563EB;
+  --pr-green:         #10B981;
+  --pr-coral:         #FF7E67;
+  --pr-bg:            #F8FAFC;
+  --pr-surface:       #ffffff;
+  --pr-surface-dim:   #EFF4FF;
+  --pr-text:          #0b1c30;
+  --pr-text-secondary:#434655;
+  --pr-border:        #E2E8F0;
+  --pr-border-soft:   #c3c6d7;
+
+  // ── Typography ────────────────────────────────────────
+  --pr-font-headline: 'Public Sans', sans-serif;
+  --pr-font-body:     'Public Sans', sans-serif;
+  --pr-font-label:    'Inter', sans-serif;
+}
+
+// ── Global overrides ──────────────────────────────────────
+body {
+  --ion-background-color:     #F8FAFC;
+  --ion-background-color-rgb: 248, 250, 252;
+  --ion-text-color:           #0b1c30;
+  --ion-text-color-rgb:       11, 28, 48;
+
+  --ion-item-background:      #ffffff;
+  --ion-toolbar-background:   #ffffff;
+  --ion-tab-bar-background:   #ffffff;
+  --ion-card-background:      #ffffff;
+
+  font-family: 'Public Sans', sans-serif;
+  color-scheme: light;
+}
+
+ion-toolbar {
+  --border-color: #E2E8F0;
+  --box-shadow: 0 1px 0 #E2E8F0;
+}
+
+ion-title {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  color: #0b1c30;
+}
+
+ion-tab-bar {
+  --border: 1px solid #E2E8F0;
+  box-shadow: 0 -1px 8px rgba(37, 99, 235, 0.06);
+}
+
+ion-tab-button {
+  --color:          #737686;
+  --color-selected: #2563EB;
+}
+
+// Alert en light mode
+ion-alert .alert-wrapper {
+  border-radius: 16px;
+}

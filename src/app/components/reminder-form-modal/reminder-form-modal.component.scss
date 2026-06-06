@@ -1,0 +1,177 @@
+.sheet-content {
+  --background: #ffffff;
+  --padding-top: 0;
+}
+
+.sheet-body {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 40px;
+}
+
+// ── Header ────────────────────────────────────────────────
+.sheet-header {
+  margin-bottom: 24px;
+}
+
+.sheet-title {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b1c30;
+  margin: 0 0 4px;
+}
+
+.sheet-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #737686;
+  margin: 0;
+}
+
+// ── Field groups ──────────────────────────────────────────
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0b1c30;
+  margin-bottom: 6px;
+}
+
+.field-wrap {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 0 12px;
+  height: 48px;
+  transition: border-color var(--duration-fast) var(--easing-ease-out);
+
+  &:focus-within {
+    border-color: #2563EB;
+  }
+
+  &.field-error {
+    border-color: #FF7E67;
+  }
+}
+
+.field-prefix {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b1c30;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.field-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #0b1c30;
+  width: 100%;
+  color-scheme: light;
+
+  &::placeholder { color: #A0AEC0; }
+}
+
+// Remove browser's built-in picker icon.
+// The picker still opens by clicking anywhere on the input.
+.date-input::-webkit-calendar-picker-indicator { display: none; }
+
+.field-trail-icon {
+  font-size: 18px;
+  color: #A0AEC0;
+  flex-shrink: 0;
+  margin-left: 6px;
+  pointer-events: none;
+}
+
+// ── Error messages ────────────────────────────────────────
+.error-msg {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #FF7E67;
+  margin: 4px 0 0 2px;
+}
+
+// ── Category chips ────────────────────────────────────────
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #CBD5E1;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--easing-ease-out),
+              border-color var(--duration-fast) var(--easing-ease-out),
+              color var(--duration-fast) var(--easing-ease-out);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active { opacity: 0.7; }
+
+  &.chip-active {
+    background: #EFF4FF;
+    border-color: #2563EB;
+    color: #2563EB;
+    font-weight: 600;
+  }
+}
+
+// ── Fecha + Hora side by side ─────────────────────────────
+.field-row {
+  display: flex;
+  gap: 12px;
+
+  .half { flex: 1; min-width: 0; }
+}
+
+// ── Actions ───────────────────────────────────────────────
+.sheet-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.btn-cancel {
+  --border-radius: 12px;
+  --color: #737686;
+  --border-color: #E2E8F0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  height: 50px;
+}
+
+.btn-save {
+  --background: #2563EB;
+  --background-activated: #1d4ed8;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  height: 50px;
+}

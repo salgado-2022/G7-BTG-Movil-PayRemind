@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()" fill="clear" color="primary">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Confirmar Registro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="medium">
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="cpm-content">
+  @if (reminder) {
+  <div class="cpm-body">
+
+    <!-- Icon -->
+    <div class="cpm-hero">
+      <div class="cpm-icon-ring">
+        <ion-icon name="document-text-outline" class="cpm-hero-icon"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Section label -->
+    <p class="cpm-section-label">Resumen de operación</p>
+
+    <!-- Reminder card -->
+    <div class="cpm-card" [style.borderLeftColor]="reminder.categoria | categoryColor">
+      <div class="pr-cat-icon" [style.width.px]="40" [style.height.px]="40"
+           [style.background]="reminder.categoria | categoryBg"
+           [style.border-radius.px]="10">
+        <ion-icon [name]="reminder.categoria | categoryIcon"
+                  [style.color]="reminder.categoria | categoryColor"
+                  [style.font-size.px]="20"></ion-icon>
+      </div>
+      <div class="cpm-card-info">
+        <p class="cpm-card-name">{{ reminder.nombre }}</p>
+        <p class="cpm-card-date">{{ reminder.fecha | date: 'dd MMM yyyy' }} · {{ reminder.hora }}</p>
+        <span class="cpm-due-badge" [class.cpm-due-overdue]="isOverdue">{{ dueLabel }}</span>
+      </div>
+    </div>
+
+    <!-- Amount -->
+    <div class="cpm-amount-block">
+      <p class="cpm-amount-label">Monto a pagar</p>
+      <p class="cpm-amount-value">$ {{ reminder.valor | number: '1.2-2' }}</p>
+    </div>
+
+    <!-- Details row -->
+    <div class="cpm-details">
+      <div class="cpm-detail-row">
+        <span class="cpm-detail-key">Fecha programada</span>
+        <span class="cpm-detail-val">{{ reminder.fecha | date: 'dd MMM yyyy' }} · {{ reminder.hora }}</span>
+      </div>
+      <div class="cpm-detail-row">
+        <span class="cpm-detail-key">Comisión</span>
+        <span class="cpm-detail-val cpm-detail-green">Gratis</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cpm-actions">
+      <ion-button expand="block" class="cpm-btn-confirm" (click)="confirm()">
+        <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+        Confirmar como Pagado
+      </ion-button>
+      <ion-button expand="block" fill="clear" class="cpm-btn-cancel" (click)="cancel()">
+        Cancelar
+      </ion-button>
+    </div>
+
+  </div>
+  } <!-- end @if (reminder) -->
+</ion-content>

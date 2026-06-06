@@ -1,0 +1,263 @@
+.pr-content {
+  --background: #F8FAFC;
+}
+
+// ── Summary card ──────────────────────────────────────────
+.summary-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2563EB;
+  border-radius: 20px;
+  margin: 16px 16px 8px;
+  padding: 20px 20px 20px 24px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+.summary-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin: 0 0 4px;
+}
+
+.summary-amount {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 10px;
+}
+
+.summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  ion-icon { font-size: 13px; }
+
+  &.badge-urgent {
+    background: rgba(255, 126, 103, 0.35);
+  }
+}
+
+.summary-trend-icon {
+  font-size: 40px;
+  opacity: 0.3;
+}
+
+// ── Section title ─────────────────────────────────────────
+.section-title {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #737686;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 16px 16px 6px;
+}
+
+// ── Empty state ───────────────────────────────────────────
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 55vh;
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+  color: #737686;
+
+  h3 { font-size: 18px; font-weight: 600; margin: 0; }
+  p  { font-size: 14px; margin: 4px 0 0; }
+}
+
+.empty-icon {
+  font-size: 64px;
+  opacity: 0.25;
+  color: #2563EB;
+}
+
+// ── List ──────────────────────────────────────────────────
+.reminders-list {
+  padding: 0 12px 80px;
+  background: transparent;
+}
+
+// ── Sliding wrapper ───────────────────────────────────────
+// .anim-slide-up is provided globally by theme/_animations.scss
+.sliding-wrapper {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(11, 28, 48, 0.05);
+}
+
+// ── Reminder card ─────────────────────────────────────────
+.reminder-card {
+  --background: #ffffff;
+  --border-radius: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --inner-padding-end: 0;
+  --inner-padding-start: 0;
+  overflow: hidden;
+}
+
+.card-inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 64px;
+  padding: 12px 12px 12px 0;
+}
+
+.status-bar {
+  width: 5px;
+  align-self: stretch;
+  flex-shrink: 0;
+  margin-right: 12px;
+  min-height: 64px;
+}
+
+// Spacing between category icon and card text
+.pr-cat-icon {
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b1c30;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #737686;
+  margin: 0;
+
+  ion-icon { font-size: 12px; flex-shrink: 0; }
+}
+
+.card-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.card-amount {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b1c30;
+  margin: 0;
+}
+
+.badge-pending {
+  --background: #FFF3F1;
+  --color: #FF7E67;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 126, 103, 0.3);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+// ── Slide-out action options ──────────────────────────────
+.slide-options {
+  background: transparent;
+}
+
+ion-item-option {
+  min-width: 74px;
+  border: none;
+  transition: filter var(--duration-fast) var(--easing-ease-out);
+
+  &:active { filter: brightness(0.93); }
+}
+
+ion-item-option.opt-pay  { --background: #D1FAE5; }
+ion-item-option.opt-edit { --background: #DBEAFE; }
+ion-item-option.opt-delete { --background: #FEE2E2; }
+
+.opt-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.opt-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon { font-size: 17px; }
+}
+
+.opt-pay .opt-circle {
+  background: rgba(5, 150, 105, 0.18);
+  ion-icon { color: #059669; }
+}
+
+.opt-edit .opt-circle {
+  background: rgba(37, 99, 235, 0.15);
+  ion-icon { color: #2563EB; }
+}
+
+.opt-delete .opt-circle {
+  background: rgba(220, 38, 38, 0.15);
+  ion-icon { color: #DC2626; }
+}
+
+.opt-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.opt-pay   .opt-label { color: #059669; }
+.opt-edit  .opt-label { color: #2563EB; }
+.opt-delete .opt-label { color: #DC2626; }
+
+// ── FAB ───────────────────────────────────────────────────
+ion-fab-button {
+  --background: #2563EB;
+  --box-shadow: 0 4px 16px rgba(37, 99, 235, 0.4);
+}

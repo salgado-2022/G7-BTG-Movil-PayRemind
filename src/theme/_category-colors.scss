@@ -1,0 +1,12 @@
+// ── Category icon wrapper colors ──────────────────────────
+// Apply alongside any icon wrapper that uses [class]="... | categoryClass".
+// Defines background tint + ion-icon color for each category.
+// Import once in global.scss — never in individual components.
+
+.cat-default,
+.cat-servicios { background: #EFF4FF; ion-icon { color: #2563EB; } }
+.cat-hogar     { background: #F0FDFA; ion-icon { color: #0D9488; } }
+.cat-compras   { background: #F5F3FF; ion-icon { color: #7C3AED; } }
+.cat-salud     { background: #FFF1F2; ion-icon { color: #E11D48; } }
+.cat-ocio      { background: #FFF7ED; ion-icon { color: #EA580C; } }
+.cat-auto      { background: #F0F9FF; ion-icon { color: #0284C7; } }

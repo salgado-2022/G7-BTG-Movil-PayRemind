@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<ion-content class="pr-content">
+
+  @if (paid.length > 0) {
+    <!-- Stats card -->
+    <div class="stats-card">
+      <p class="stats-label">Total Pagado Este Mes</p>
+      <p class="stats-amount">${{ totalPaidThisMonth | number: '1.0-0' }}</p>
+      <div class="stats-chips">
+        <div class="stat-chip" [class.chip-negative]="vsLastMonthPercent < 0">
+          <ion-icon [name]="vsLastMonthPercent >= 0 ? 'trending-up-outline' : 'trending-down-outline'"></ion-icon>
+          <span>{{ vsLastMonthPercent >= 0 ? '+' : '' }}{{ vsLastMonthPercent }}% vs mes anterior</span>
+        </div>
+        <div class="stat-chip">
+          <ion-icon name="checkmark-circle-outline"></ion-icon>
+          <span>{{ paymentCountThisMonth }} pagos realizados</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Punctuality card -->
+    <div class="puntual-card">
+      <div class="puntual-icon-wrap">
+        <ion-icon name="checkmark-circle-outline" class="puntual-icon"></ion-icon>
+      </div>
+      <p class="puntual-label">Puntualidad</p>
+      <p class="puntual-value">{{ punctualityRate }}%</p>
+    </div>
+  }
+
+  <!-- Section header -->
+  <div class="section-header">
+    <p class="section-title">Historial de Pagos</p>
+    <button class="filter-btn" type="button">
+      <ion-icon name="funnel-outline"></ion-icon>
+      Filtrar
+    </button>
+  </div>
+
+  @if (paid.length === 0) {
+    <div class="empty-state">
+      <ion-icon name="time-outline" class="empty-icon"></ion-icon>
+      <ion-text>
+        <h3>Sin pagos registrados</h3>
+        <p>Aquí verás tus pagos completados</p>
+      </ion-text>
+    </div>
+  } @else {
+    <div class="history-list">
+      @for (reminder of paid; track reminder.id) {
+        <div class="hcard">
+          <!-- Category icon -->
+          <div class="pr-cat-icon" [style.width.px]="42" [style.height.px]="42"
+               [style.background]="reminder.categoria | categoryBg"
+               [style.border-radius.px]="11">
+            <ion-icon [attr.name]="reminder.categoria | categoryIcon"
+                      [style.color]="reminder.categoria | categoryColor"
+                      [style.font-size.px]="21"></ion-icon>
+          </div>
+
+          <!-- Info -->
+          <div class="hcard-info">
+            <p class="hcard-name">{{ reminder.nombre }}</p>
+            <p class="hcard-meta">
+              <ion-icon name="calendar-outline" class="meta-icon"></ion-icon>
+              {{ reminder.fechaPago | date: 'dd MMM · HH:mm' }}
+              @if (reminder.categoria) {
+                <span class="hcard-cat-badge">{{ reminder.categoria | uppercase }}</span>
+              }
+            </p>
+          </div>
+
+          <!-- Right -->
+          <div class="hcard-right">
+            <p class="hcard-amount">${{ reminder.valor | number: '1.0-0' }}</p>
+            <p class="hcard-status">
+              <ion-icon name="checkmark-circle" class="status-check"></ion-icon>
+              PAGADO
+            </p>
+          </div>
+        </div>
+      }
+    </div>
+  }
+
+</ion-content>

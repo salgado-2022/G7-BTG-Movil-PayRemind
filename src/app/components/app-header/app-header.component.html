@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+
+    @if (showMenu) {
+      <ion-buttons slot="start">
+        <ion-button fill="clear" color="medium">
+          <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    }
+
+    <ion-title color="primary">{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      @if (showSearch) {
+        <ion-button fill="clear" color="medium">
+          <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+        </ion-button>
+      }
+      <div class="avatar-chip">{{ initials }}</div>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>

@@ -1,0 +1,7 @@
+{
+  "name": "payremind",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

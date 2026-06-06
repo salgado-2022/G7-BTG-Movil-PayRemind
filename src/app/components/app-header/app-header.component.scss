@@ -1,0 +1,26 @@
+ion-toolbar {
+  --background: #ffffff;
+  --border-color: transparent;
+  box-shadow: 0 1px 0 #E2E8F0;
+}
+
+ion-title {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.avatar-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2563EB;
+  color: #ffffff;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 8px;
+}

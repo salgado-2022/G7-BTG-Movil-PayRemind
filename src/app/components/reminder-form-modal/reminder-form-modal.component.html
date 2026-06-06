@@ -1,0 +1,113 @@
+<ion-content class="sheet-content" [scrollY]="true">
+  <div class="sheet-body">
+
+    <!-- Header -->
+    <div class="sheet-header">
+      <h2 class="sheet-title">{{ mode === 'create' ? 'Nuevo Recordatorio' : 'Editar Recordatorio' }}</h2>
+      <p class="sheet-subtitle">Configura los detalles de tu próximo pago.</p>
+    </div>
+
+    <form [formGroup]="form">
+
+      <!-- Nombre -->
+      <div class="field-group">
+        <label class="field-label">Nombre del recordatorio</label>
+        <div class="field-wrap" [class.field-error]="nombreCtrl.invalid && nombreCtrl.touched">
+          <input
+            class="field-input"
+            type="text"
+            formControlName="nombre"
+            placeholder="Ej: Factura de luz"
+            maxlength="60"
+            autocomplete="off"
+          />
+        </div>
+        @if (nombreCtrl.touched && nombreCtrl.hasError('required')) {
+          <p class="error-msg">El nombre es requerido</p>
+        }
+      </div>
+
+      <!-- Valor -->
+      <div class="field-group">
+        <label class="field-label">Valor</label>
+        <div class="field-wrap" [class.field-error]="valorCtrl.invalid && valorCtrl.touched">
+          <span class="field-prefix">$ </span>
+          <input
+            class="field-input"
+            type="text"
+            inputmode="numeric"
+            [value]="displayValor"
+            (input)="formatValor($event)"
+            (blur)="valorCtrl.markAsTouched()"
+            placeholder="0"
+          />
+        </div>
+        @if (valorCtrl.touched && valorCtrl.hasError('required')) {
+          <p class="error-msg">El valor es requerido</p>
+        }
+        @if (valorCtrl.touched && valorCtrl.hasError('min')) {
+          <p class="error-msg">Ingresa un valor mayor a 0</p>
+        }
+      </div>
+
+      <!-- Categoría -->
+      <div class="field-group">
+        <label class="field-label">Categoría</label>
+        <div class="chips-row">
+          @for (cat of categories; track cat) {
+            <button
+              type="button"
+              class="chip"
+              [class.chip-active]="categoriaCtrl.value === cat"
+              (click)="selectCategory(cat)"
+            >{{ cat }}</button>
+          }
+        </div>
+      </div>
+
+      <!-- Fecha + Hora -->
+      <div class="field-row">
+
+        <div class="field-group half">
+          <label class="field-label">Fecha</label>
+          <div class="field-wrap" [class.field-error]="fechaCtrl.invalid && fechaCtrl.touched">
+            <input class="field-input date-input" type="date"
+                   formControlName="fecha" [min]="today" />
+            <ion-icon name="calendar-outline" class="field-trail-icon"></ion-icon>
+          </div>
+          @if (fechaCtrl.touched && fechaCtrl.hasError('required')) {
+            <p class="error-msg">Requerida</p>
+          }
+          @if (fechaCtrl.touched && fechaCtrl.hasError('pastDate')) {
+            <p class="error-msg">Fecha inválida</p>
+          }
+        </div>
+
+        <div class="field-group half">
+          <label class="field-label">Hora</label>
+          <div class="field-wrap" [class.field-error]="horaCtrl.invalid && horaCtrl.touched">
+            <input class="field-input date-input" type="time"
+                   formControlName="hora" />
+            <ion-icon name="time-outline" class="field-trail-icon"></ion-icon>
+          </div>
+          @if (horaCtrl.touched && horaCtrl.hasError('required')) {
+            <p class="error-msg">Requerida</p>
+          }
+        </div>
+
+      </div>
+
+    </form>
+
+    <!-- Actions -->
+    <div class="sheet-actions">
+      <ion-button expand="block" fill="outline" color="medium" class="btn-cancel" (click)="cancel()">
+        Cancelar
+      </ion-button>
+      <ion-button expand="block" class="btn-save" [disabled]="form.invalid" (click)="save()">
+        Guardar
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

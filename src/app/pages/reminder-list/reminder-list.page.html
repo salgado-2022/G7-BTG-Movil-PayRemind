@@ -1,0 +1,98 @@
+<app-header></app-header>
+
+<ion-content class="pr-content">
+
+  @if (!loading && reminders.length > 0) {
+    <!-- Summary card -->
+    <div class="summary-card">
+      <div class="summary-left">
+        <p class="summary-label">Total pendiente</p>
+        <p class="summary-amount">${{ totalPending | number: '1.0-0' }}</p>
+        <div class="summary-badge" [class.badge-urgent]="(daysUntilNext ?? 99) <= 2">
+          <ion-icon name="time-outline"></ion-icon>
+          <span>{{ nextPaymentLabel }}</span>
+        </div>
+      </div>
+      <div class="summary-right">
+        <ion-icon name="trending-down-outline" class="summary-trend-icon"></ion-icon>
+      </div>
+    </div>
+  }
+
+  <p class="section-title">Próximos pagos</p>
+
+  @if (loading) {
+    <div class="empty-state">
+      <ion-text color="medium">Cargando...</ion-text>
+    </div>
+  } @else if (reminders.length === 0) {
+    <div class="empty-state">
+      <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+      <ion-text>
+        <h3>Sin recordatorios</h3>
+        <p>Toca <strong>+</strong> para agregar tu primer pago</p>
+      </ion-text>
+    </div>
+  } @else {
+    <ion-list lines="none" class="reminders-list">
+      @for (reminder of reminders; track reminder.id; let i = $index) {
+        <ion-item-sliding #slidingItem class="sliding-wrapper anim-slide-up"
+          [style.animationDelay]="i | staggerDelay">
+
+          <ion-item class="reminder-card" [detail]="false">
+            <div class="card-inner">
+              <div class="status-bar" [style.background]="reminder.categoria | categoryColor"></div>
+              <div class="pr-cat-icon" [style.width.px]="40" [style.height.px]="40"
+                   [style.background]="reminder.categoria | categoryBg"
+                   [style.border-radius.px]="10">
+                <ion-icon [attr.name]="reminder.categoria | categoryIcon"
+                          [style.color]="reminder.categoria | categoryColor"
+                          [style.font-size.px]="20"></ion-icon>
+              </div>
+              <div class="card-text">
+                <h2 class="card-name">{{ reminder.nombre }}</h2>
+                <p class="card-date">
+                  <ion-icon name="calendar-outline"></ion-icon>
+                  Vence {{ reminder.fecha | date: 'dd MMM yyyy' }} · {{ reminder.hora }}
+                </p>
+              </div>
+              <div class="card-end">
+                <p class="card-amount">${{ reminder.valor | number: '1.0-0' }}</p>
+                <ion-badge class="badge-pending">PENDIENTE</ion-badge>
+              </div>
+            </div>
+          </ion-item>
+
+          <ion-item-options side="end" class="slide-options">
+            <ion-item-option class="opt-pay" (click)="onMarkAsPaid(reminder, slidingItem)">
+              <div class="opt-content">
+                <div class="opt-circle"><ion-icon name="checkmark-outline"></ion-icon></div>
+                <span class="opt-label">Pagar</span>
+              </div>
+            </ion-item-option>
+            <ion-item-option class="opt-edit" (click)="onEdit(reminder, slidingItem)">
+              <div class="opt-content">
+                <div class="opt-circle"><ion-icon name="pencil-outline"></ion-icon></div>
+                <span class="opt-label">Editar</span>
+              </div>
+            </ion-item-option>
+            <ion-item-option class="opt-delete" (click)="onDelete(reminder.id, slidingItem)">
+              <div class="opt-content">
+                <div class="opt-circle"><ion-icon name="trash-outline"></ion-icon></div>
+                <span class="opt-label">Eliminar</span>
+              </div>
+            </ion-item-option>
+          </ion-item-options>
+
+        </ion-item-sliding>
+      }
+    </ion-list>
+  }
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openCreateModal()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

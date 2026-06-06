@@ -1,0 +1,45 @@
+// ── Animation tokens ──────────────────────────────────────
+// CSS counterpart of animation.constants.ts.
+// Import this file once in global.scss — never in components.
+:root {
+  --easing-spring:        cubic-bezier(0.16, 1, 0.3, 1);
+  --easing-spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --easing-ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --easing-ease-out:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --duration-fast:   150ms;
+  --duration-normal: 280ms;
+  --duration-spring: 320ms;
+  --duration-leave:  190ms;
+}
+
+// ── Keyframes ─────────────────────────────────────────────
+@keyframes pr-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pr-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pr-scale-in {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+// ── Utility animation classes ─────────────────────────────
+// Apply to any element that needs the animation.
+// Pair with [style.animationDelay] for stagger effects.
+.anim-slide-up {
+  animation: pr-slide-up var(--duration-spring) var(--easing-spring) both;
+}
+
+.anim-fade-in {
+  animation: pr-fade-in var(--duration-normal) var(--easing-ease-out) both;
+}
+
+.anim-scale-in {
+  animation: pr-scale-in var(--duration-normal) var(--easing-spring) both;
+}

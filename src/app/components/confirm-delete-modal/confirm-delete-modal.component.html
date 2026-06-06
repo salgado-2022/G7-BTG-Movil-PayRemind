@@ -1,0 +1,24 @@
+<div class="dialog-root">
+
+  <div class="icon-circle">
+    <ion-icon name="trash-outline"></ion-icon>
+  </div>
+
+  <h2 class="dialog-title">¿Estás seguro de eliminar este registro?</h2>
+
+  <p class="dialog-desc">
+    Esta acción es permanente y no se podrá recuperar la información
+    de este recordatorio una vez confirmada.
+  </p>
+
+  <div class="dialog-actions">
+    <ion-button expand="block" class="btn-delete" (click)="confirm()">
+      <ion-icon name="trash-outline" slot="start"></ion-icon>
+      Eliminar
+    </ion-button>
+    <ion-button expand="block" fill="clear" class="btn-cancel" (click)="cancel()">
+      Cancelar
+    </ion-button>
+  </div>
+
+</div>

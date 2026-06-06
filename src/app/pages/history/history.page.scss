@@ -1,0 +1,252 @@
+.pr-content {
+  --background: #F8FAFC;
+}
+
+
+// ── Stats card ────────────────────────────────────────────
+.stats-card {
+  background: linear-gradient(135deg, #2563EB 0%, #1e40af 100%);
+  border-radius: 20px;
+  margin: 16px 16px 10px;
+  padding: 20px 20px 18px;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+.stats-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin: 0 0 4px;
+}
+
+.stats-amount {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 14px;
+}
+
+.stats-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+
+  ion-icon { font-size: 13px; }
+
+  &.chip-negative { background: rgba(255, 126, 103, 0.35); }
+}
+
+// ── Punctuality card ──────────────────────────────────────
+.puntual-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  margin: 0 16px 8px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(11, 28, 48, 0.05);
+}
+
+.puntual-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #F0FDF9;
+  margin-bottom: 8px;
+}
+
+.puntual-icon {
+  font-size: 26px;
+  color: #10B981;
+}
+
+.puntual-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #737686;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 4px;
+}
+
+.puntual-value {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0b1c30;
+  margin: 0;
+}
+
+// ── Section header ────────────────────────────────────────
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 8px;
+}
+
+.section-title {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0b1c30;
+  margin: 0;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2563EB;
+  cursor: pointer;
+  outline: none;
+
+  ion-icon { font-size: 14px; }
+}
+
+// ── Empty state ───────────────────────────────────────────
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+  color: #737686;
+
+  h3 { font-size: 18px; font-weight: 600; margin: 0; }
+  p  { font-size: 14px; margin: 4px 0 0; }
+}
+
+.empty-icon {
+  font-size: 64px;
+  opacity: 0.25;
+  color: #10B981;
+}
+
+// ── History list ──────────────────────────────────────────
+.history-list {
+  padding: 0 12px 80px;
+}
+
+.hcard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(11, 28, 48, 0.04);
+}
+
+
+// ── Info ──────────────────────────────────────────────────
+.hcard-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hcard-name {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0b1c30;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hcard-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #737686;
+  margin: 0;
+}
+
+.meta-icon {
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.hcard-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #F0FDF9;
+  color: #10B981;
+  border: 1px solid #A7F3D0;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+// ── Right side ────────────────────────────────────────────
+.hcard-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.hcard-amount {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b1c30;
+  margin: 0;
+}
+
+.hcard-status {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #10B981;
+  margin: 0;
+}
+
+.status-check {
+  font-size: 13px;
+  color: #10B981;
+}
