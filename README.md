@@ -6,6 +6,26 @@ Permite registrar obligaciones financieras (nombre, valor, fecha y hora), recibi
 
 ---
 
+## Probar la app (APK precompilado)
+
+Para evaluar la app sin compilar nada, descarga el APK debug listo para instalar:
+
+**📥 [Descargar PayRemind-debug-v0.0.1.apk](releases/PayRemind-debug-v0.0.1.apk)** (~26 MB)
+
+### Instalación en Android
+
+1. Descarga el archivo en tu dispositivo (o transfiérelo por USB/Drive).
+2. Abre el APK desde el gestor de archivos.
+3. Android pedirá habilitar **"Instalar apps de fuentes desconocidas"** la primera vez — concédelo solo a la app de archivos que estés usando.
+4. Pulsa **Instalar** y abre PayRemind.
+5. Al primer uso, acepta el permiso de **Notificaciones** (necesario para los recordatorios).
+
+> ⚠️ Es un APK **debug**: sin firmar para producción, sin minificación. Sirve para evaluación funcional, no para distribución pública. El APK firmado de release se genera siguiendo la sección [Generar APK / AAB firmado](#generar-apk--aab-firmado).
+>
+> Requisitos del dispositivo: **Android 8.0 (API 26) o superior**.
+
+---
+
 ## Tabla de contenidos
 
 1. [Stack tecnológico](#stack-tecnológico)
