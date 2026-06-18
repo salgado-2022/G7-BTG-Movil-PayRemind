@@ -8,9 +8,17 @@ import {
 } from '@ionic/angular/standalone';
 import { Reminder, ReminderInput } from '../../core/models/reminder.model';
 
+/** Fecha de hoy en horario LOCAL como "YYYY-MM-DD" (no UTC, evita el desfase nocturno en UTC-5). */
+function localToday(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
 function futureDateValidator(ctrl: AbstractControl): ValidationErrors | null {
-  const today = new Date().toISOString().split('T')[0];
-  return ctrl.value && ctrl.value < today ? { pastDate: true } : null;
+  return ctrl.value && ctrl.value < localToday() ? { pastDate: true } : null;
 }
 
 @Component({
@@ -25,7 +33,7 @@ export class ReminderFormModalComponent implements OnInit {
 
   private readonly modalCtrl = inject(ModalController);
 
-  readonly today = new Date().toISOString().split('T')[0];
+  readonly today = localToday();
   readonly categories = ['Servicios', 'Hogar', 'Compras', 'Salud', 'Ocio'];
 
   displayValor = '';

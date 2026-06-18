@@ -10,7 +10,9 @@ Permite registrar obligaciones financieras (nombre, valor, fecha y hora), recibi
 
 Para evaluar la app sin compilar nada, descarga el APK debug listo para instalar:
 
-**📥 [Descargar PayRemind-debug-v0.0.1.apk](releases/PayRemind-debug-v0.0.1.apk)** (~26 MB)
+**📥 [Descargar PayRemind-debug-v0.0.2.apk](releases/PayRemind-debug-v0.0.2.apk)** (~26 MB)
+
+> **Novedades v0.0.2:** notificaciones con *fallback* web (Web Notifications API) para probar en el navegador, corrección de la validación de fecha por zona horaria (UTC → local), ícono de notificación corregido y permisos de alarma exacta (`SCHEDULE_EXACT_ALARM` / `USE_EXACT_ALARM`) para un disparo puntual en Android 12+.
 
 ### Instalación en Android
 
@@ -134,7 +136,7 @@ ionic serve
 
 La app queda disponible en [http://localhost:8100](http://localhost:8100) (o `4200` con `npm start`).
 
-> **Nota:** En modo web las notificaciones locales **no disparan** push nativos — el `NotificationService` registra el agendamiento pero requiere un dispositivo/emulador Android para verlas.
+> **Nota:** Desde la v0.0.2 el `NotificationService` incluye un *fallback* web (Web Notifications API + `setTimeout`): las notificaciones **sí** se muestran en el navegador mientras la pestaña esté abierta y se haya concedido el permiso. Para que disparen con la app **cerrada** se requiere un dispositivo/emulador Android (AlarmManager nativo).
 
 ---
 
@@ -352,6 +354,9 @@ sdk.dir=C\:\\Users\\<usuario>\\AppData\\Local\\Android\\Sdk
 
 ### Las notificaciones no aparecen en Android 13+
 Acepta el permiso `POST_NOTIFICATIONS` la primera vez que se solicita. Si lo rechazaste, actívalo manualmente en *Ajustes → Apps → PayRemind → Notificaciones*.
+
+### Las notificaciones llegan tarde o no a la hora exacta (Android 12+)
+La app declara `SCHEDULE_EXACT_ALARM` / `USE_EXACT_ALARM` para el disparo puntual. En algunos dispositivos debes habilitarlo manualmente en *Ajustes → Apps → PayRemind → Alarmas y recordatorios → Permitir*. Sin ese permiso, Android puede diferir la notificación (modo Doze).
 
 ### SQLite no inicializa en el emulador
 Verifica que el plugin esté en `android/app/src/main/assets/capacitor.plugins.json` después del `cap sync`. Si no, ejecuta:

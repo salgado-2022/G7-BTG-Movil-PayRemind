@@ -13,6 +13,7 @@ import {
 } from 'ionicons/icons';
 import { ReminderRepository } from './core/repositories/reminder.repository';
 import { NotificationService } from './core/services/notification.service';
+import { ReminderService } from './core/services/reminder.service';
 
 @Component({
   selector: 'app-root',
@@ -21,8 +22,9 @@ import { NotificationService } from './core/services/notification.service';
   template: `<ion-app><ion-router-outlet></ion-router-outlet></ion-app>`,
 })
 export class AppComponent implements OnInit {
-  private readonly repo  = inject(ReminderRepository);
-  private readonly notif = inject(NotificationService);
+  private readonly repo      = inject(ReminderRepository);
+  private readonly notif     = inject(NotificationService);
+  private readonly reminders = inject(ReminderService);
 
   constructor() {
     addIcons({
@@ -40,5 +42,9 @@ export class AppComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.repo.init();
     await this.notif.requestPermission();
+    // En web los timers de setTimeout se pierden al recargar: reprograma los pendientes.
+    // En nativo es no-op (las notificaciones persisten en el sistema operativo).
+    const pendientes = await this.reminders.list();
+    await this.notif.rescheduleAllForWeb(pendientes);
   }
 }
